@@ -1,12 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss',
+  template: `<router-outlet />`,
 })
-export default class App {
-  protected readonly title = signal('Pong');
+export default class AppComponent {
+  private readonly router = inject(Router);
 }
