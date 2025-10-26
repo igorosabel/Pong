@@ -1,0 +1,64 @@
+.menu {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    background: var(--color-black);
+    color: var(--color-white);
+    font-family: system-ui, sans-serif;
+
+    h1 {
+        text-align: center;
+        letter-spacing: 0.2em;
+        margin: 0 0 1rem;
+    }
+
+    &>div {
+        background: var(--color-almost-black);
+        border: 1px solid var(--color-dark-gray);
+        padding: 2rem;
+        border-radius: 1rem;
+        width: min(480px, 92vw);
+        box-sizing: border-box;
+    }
+
+    button {
+        background: var(--color-black);
+        color: var(--color-white);
+        border: 1px solid var(--color-gray);
+        padding: 0.5rem 0.9rem;
+        border-radius: 0.6rem;
+        cursor: pointer;
+
+        &.active {
+            border-color: var(--color-white);
+            box-shadow: 0 0 0 1px var(--color-white) inset;
+        }
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0.75rem 0;
+
+        label {
+            opacity: 0.9;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        .start {
+            font-weight: 700;
+            border-color: var(--color-white);
+        }
+    }
+}

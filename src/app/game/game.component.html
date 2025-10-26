@@ -1,0 +1,28 @@
+<div class="wrap"
+     [class.portrait]="isPortrait()">
+    @if (isPortrait()) {
+    <div class="rotate">Gira el dispositivo a horizontal</div>
+    }
+
+    <div class="stage"
+         #stage>
+        <canvas #canvas></canvas>
+        <div class="hud">
+            <div class="score">{{ score().left }} — {{ score().right }}</div>
+            @if (countdown() > 0) {
+            <div class="countdown">{{ countdown() }}</div>
+            }
+        </div>
+
+        @if (showTouch()) {
+        <div class="touch left">
+            <app-touch-controls (up)="touchMove(SideEnum.LEFT, -1)"
+                                (down)="touchMove(SideEnum.LEFT, 1)" />
+        </div>
+        <div class="touch right">
+            <app-touch-controls (up)="touchMove(SideEnum.RIGHT, -1)"
+                                (down)="touchMove(SideEnum.RIGHT, 1)" />
+        </div>
+        }
+    </div>
+</div>

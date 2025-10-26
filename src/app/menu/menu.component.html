@@ -1,0 +1,50 @@
+<div class="menu">
+    <h1>PONG</h1>
+    <div class="row">
+        <label>Jugadores</label>
+        <div class="btn-group">
+            <button [class.active]="mode() === 1"
+                    (click)="mode.set(1)">1 jugador</button>
+            <button [class.active]="mode() === 2"
+                    (click)="mode.set(2)">2 jugadores</button>
+        </div>
+    </div>
+
+    @if (mode() === 1) {
+    <div class="row">
+        <label>Lado (jugador)</label>
+        <div class="btn-group">
+            <button [class.active]="humanSide() === SideEnum.LEFT"
+                    (click)="humanSide.set(SideEnum.LEFT)">
+                Izquierda
+            </button>
+            <button [class.active]="humanSide() === SideEnum.RIGHT"
+                    (click)="humanSide.set(SideEnum.RIGHT)">
+                Derecha
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <label>Dificultad IA</label>
+        <div class="btn-group">
+            <button [class.active]="difficulty() === DifficultyEnum.EASY"
+                    (click)="difficulty.set(DifficultyEnum.EASY)">
+                Fácil
+            </button>
+            <button [class.active]="difficulty() === DifficultyEnum.MEDIUM"
+                    (click)="difficulty.set(DifficultyEnum.MEDIUM)">
+                Media
+            </button>
+            <button [class.active]="difficulty() === DifficultyEnum.HARD"
+                    (click)="difficulty.set(DifficultyEnum.HARD)">
+                Difícil
+            </button>
+        </div>
+    </div>
+    }
+
+    <div class="actions">
+        <button class="start"
+                (click)="start()">Empezar</button>
+    </div>
+</div>

@@ -1,12 +1,13 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { Difficulty, GameSetup, PlayersMode, Score, Side } from '../types';
+import { Difficulty, GameSetup, PlayersMode, Score, Side, SideEnum } from '../types';
+import { DifficultyEnum } from './../types';
 
 @Injectable({ providedIn: 'root' })
 export class GameStateService {
   // Configuración elegida en menú
   readonly mode: WritableSignal<PlayersMode> = signal<PlayersMode>(1);
-  readonly humanSide: WritableSignal<Side> = signal<Side>('left');
-  readonly difficulty: WritableSignal<Difficulty> = signal<Difficulty>('medium');
+  readonly humanSide: WritableSignal<Side> = signal<Side>(SideEnum.LEFT);
+  readonly difficulty: WritableSignal<Difficulty> = signal<Difficulty>(DifficultyEnum.MEDIUM);
 
   // Marcador
   readonly score: WritableSignal<Score> = signal<Score>({ left: 0, right: 0 });

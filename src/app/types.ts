@@ -1,8 +1,19 @@
-export type Side = 'left' | 'right';
+export enum SideEnum {
+  LEFT = 'left',
+  RIGHT = 'right',
+}
+
+export type Side = SideEnum.LEFT | SideEnum.RIGHT;
 
 export type PlayersMode = 1 | 2;
 
-export type Difficulty = 'easy' | 'medium' | 'hard';
+export enum DifficultyEnum {
+  EASY = 'easy',
+  MEDIUM = 'medium',
+  HARD = 'hard',
+}
+
+export type Difficulty = DifficultyEnum.EASY | DifficultyEnum.MEDIUM | DifficultyEnum.HARD;
 
 export interface GameSetup {
   mode: PlayersMode;
@@ -23,4 +34,17 @@ export interface Vec2 {
 export interface Dimensions {
   width: number;
   height: number;
+}
+
+export interface Paddle {
+  y: number;
+  height: number;
+  speed: number;
+}
+
+export interface Ball {
+  pos: Vec2;
+  vel: Vec2;
+  radius: number;
+  speed: number;
 }
