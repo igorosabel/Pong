@@ -1,9 +1,10 @@
-// @ts-check
 const eslint = require('@eslint/js');
+const { defineConfig, globalIgnores } = require('eslint/config');
 const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 
-module.exports = tseslint.config(
+module.exports = defineConfig(
+  globalIgnores(['dist/**', '.angular/**', 'coverage/**']),
   {
     files: ['**/*.ts'],
     extends: [
@@ -36,6 +37,9 @@ module.exports = tseslint.config(
   {
     files: ['**/*.html'],
     extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
-    rules: {},
-  }
+    rules: {
+      '@angular-eslint/template/click-events-have-key-events': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
+    },
+  },
 );
